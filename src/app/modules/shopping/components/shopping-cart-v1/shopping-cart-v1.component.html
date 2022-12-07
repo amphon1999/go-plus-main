@@ -1,0 +1,145 @@
+<div class="content-wrapper">
+
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>สรุปรายการ</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Delivery add Page</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+  
+        <div class="callout callout-info">
+          <h5><i class="fas fa-envelope icon-hover" ></i> ใบกำกับภาษี:  <span class="float-right icon-hover"><i
+            class="fas fa-edit icon-hover"></i><a> แก้ไข</a> </span><br>
+             {{this.billToTax}}  <br>
+             {{this.billToName}} <br>
+             {{this.billToAddress}}</h5>
+
+          
+        </div>
+  
+  
+  
+  
+  
+  
+        <div class="card card-solid">
+  
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <span *ngIf="isSelect" class="float-right">
+                  <a class="btn btn-info btn-sm" href="#">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Edit
+                </a>
+                <a class="btn btn-danger btn-sm" href="#">
+                    <i class="fas fa-trash">
+                    </i>
+                    Delete
+                </a>
+                </span>
+                 <br>
+                <table class="table table-head-fixed table-bordered table-hover projects">
+
+
+                  <thead>
+                    <tr>
+                      <th class="text-center"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"> รหัสสินค้า</th>
+                      <th class="text-center">รายการ</th>
+                      <th class="text-center">จำนวน</th>
+                      <th class="text-center">ราคาต่อหน่วย</th>
+                      <th class="text-center">รวมราคา</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of myCart; let i = index">
+                      <td class="text-center" scope="row">
+  
+                        <input type="checkbox"  value="{{item.ItemCode}}" [(ngModel)]="myCart[i].checked" [checked]="isCheckBoxChecked(item.ItemCode)"> {{item.ItemCode}}
+  
+                      </td>
+                      <td class="text-left">{{item.ItemName}} </td>
+                      <td class="text-center">{{item.qty}}</td>
+                      <td class="text-right">{{item.RetailPrice}}</td>
+                      <td class="text-right">{{item.total | number:'2.2-2'}}</td>
+  
+                    </tr>
+  
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td class="text-right">ราคาก่อน VAT</td>
+                      <td class="text-right">{{this.includeVat | number:'2.2-2' }}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td class="text-right">Vat 7%</td>
+                      <td class="text-right">{{this.vat | number: '2.2-2'}}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td class="text-right">ราคารวม</td>
+                      <td class="text-right"><b>{{this.grandTotal | number: '2.2-2'}}</b></td>
+                    </tr>
+                  </tfoot>
+                </table>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+  
+        <div class="card card-solid"> 
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="float-right">
+                  
+                  <button type="button"  class="btn btn-default"><i class="fas fa-pencil-alt"></i> Back</button>
+                  <button type="button" (click)="gotoPayment()"class="btn btn-primary"><i class="far fa-envelope"></i> CheckOut</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+      </div>
+    </section>
+  
+  
+  
+  
+  
+  
+  </div>
+  
