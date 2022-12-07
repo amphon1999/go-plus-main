@@ -77,7 +77,7 @@
                       <td class="text-left">{{item.ItemName}} </td>
                       <td class="text-center">{{item.qty}}</td>
                       <td class="text-right">{{item.RetailPrice}}</td>
-                      <td class="text-right">{{item.total | number:'2.2-2'}}</td>
+                      <td class="text-right">{{item.qty*item.RetailPrice| number:'2.2-2'}}</td>
   
                     </tr>
   
