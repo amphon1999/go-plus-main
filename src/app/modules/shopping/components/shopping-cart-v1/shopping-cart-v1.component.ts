@@ -93,9 +93,6 @@ export class ShoppingCartV1Component implements OnInit {
     console.log(this.billToName)
   }
 
-  gotoPayment() {
-    this.router.navigate(['/payment'])
-  }
 
   onGetBillTo() {
     this.apiBillTo = this.mockApiBill.data

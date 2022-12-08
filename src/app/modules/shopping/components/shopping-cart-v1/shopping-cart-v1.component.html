@@ -121,9 +121,12 @@
             <div class="row">
               <div class="col-12">
                 <div class="float-right">
-                  
-                  <button type="button"  class="btn btn-default"><i class="fas fa-pencil-alt"></i> Back</button>
-                  <button type="button" (click)="gotoPayment()"class="btn btn-primary"><i class="far fa-envelope"></i> CheckOut</button>
+                  <a routerLink="/shoptableapi">
+                  <button type="button"   class="btn btn-default" style="margin: 5px;"><i class="fa fa-arrow-left"></i> Back</button>
+                  </a>
+                  <a routerLink="/payment">
+                  <button type="button"class="btn btn-primary" style="margin: 5px;"><i class="fa fa-credit-card"></i> CheckOut</button>
+                  </a>
                 </div>
               </div>
             </div>
